@@ -2,6 +2,13 @@ from pathlib import Path
 import json
 import pandas as pd
 
+def profile(df: pd.DataFrame) -> dict:
+    return {
+        "rows": len(df),
+        "columns": list(df.columns),
+        "missing": df.isna().sum().to_dict(),
+        "duplicates": int(df.duplicated().sum()),
+    }
 
 def read_dataset(path: Path) -> pd.DataFrame:
     if path.suffix.lower() == ".csv":
