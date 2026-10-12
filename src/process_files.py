@@ -6,7 +6,7 @@ from src.logger import get_logger
 import pandas as pd
 from pathlib import Path
 
-logger = get_logger()
+logger = get_logger('file_pipeline')
 staging = Settings().staging_dir
 
 FILES = [
