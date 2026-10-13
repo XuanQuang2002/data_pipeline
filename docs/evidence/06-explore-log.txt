@@ -1,0 +1,86 @@
+```
+    curl http://localhost:8000/health
+    {"status":"ok"}%
+```
+
+curl -H "X-API-Key: training-key" \
+"http://localhost:8000/customers?page=1&page_size=5"
+{
+    "page":1,
+    "page_size":5,
+    "total":100,
+    "has_next":true,
+    "data":[
+        {
+            "customer_id":"CUS000001",
+            "full_name":"Glenda Crosby",
+            "email":"user0001@example.com",
+            "phone":"0955750088",
+            "city":"Can Tho",
+            "customer_segment":"Gold",
+            "status":"active",
+            "source_system":
+            "daily_file",
+            "created_at":
+            "2025-11-05T15:02:00+07:00",
+            "updated_at":"2026-07-01T08:01:00+07:00"
+        },
+        {
+            "customer_id":"CUS000002",
+            "full_name":"Andrea Bernard",
+            "email":"user0002@example.com",
+            "phone":"0918497333",
+            "city":"Can Tho",
+            "customer_segment":"Silver",
+            "status":"active",
+            "source_system":"daily_file",
+            "created_at":"2025-01-15T08:34:00+07:00",
+            "updated_at":"2026-07-01T08:02:00+07:00"
+        },
+        {
+            "customer_id":"CUS000003",
+            "full_name":"Patrick Johnson",
+            "email":"user0003@example.com",
+            "phone":"0944125945",
+            "city":"Hanoi",
+            "customer_segment
+            ":"Platinum",
+            "status":"active",
+            "source_system":"daily_file",
+            "created_at":"2025-03-12T17:29:00+07:00",
+            "updated_at":"2026-07-01T08:03:00+07:00"
+        },
+        {
+            "customer_id":"CUS000004",
+            "full_name":"Linda Martin",
+            "email":"user0004@example.com",
+            "phone":"0922058255",
+            "city":"Hai Phong",
+            "customer_segment":"Gold",
+            "status":"active",
+            "source_system":"daily_file",
+            "created_at":"2025-03-22T23:35:00+07:00",
+            "updated_at":"2026-07-01T08:04:00+07:00"
+        },
+        {
+            "customer_id":"CUS000005",
+            "full_name":"Justin Frey",
+            "email":"user0005@example.com",
+            "phone":"0943463313",
+            "city":"Da Nang",
+            "customer_segment":"Gold",
+            "status":"active",
+            "source_system":"daily_file",
+            "created_at":"2025-09-05T13:28:00+07:00",
+            "updated_at":"2026-07-01T08:05:00+07:00"
+        }
+    ]
+}%
+
+curl \
+"http://localhost:8000/customers?page=1&page_size=5"
+{"detail":"Invalid API key"}%
+
+curl -H "X-API-Key: wrong-key" \
+"http://localhost:8000/customers?page=1&page_size=5"
+{"detail":"Invalid API key"}% 
