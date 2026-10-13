@@ -11,11 +11,13 @@ class Settings:
     root: Path = Path(__file__).resolve().parents[1]
     database_url: str = os.getenv(
         'DATABASE_URL',
-        'postgresql+psycopg://de_user:de_password@localhost:5432/ecommerce',
+        'postgresql+psycopg://de_user:de_password@localhost:5433/ecommerce',
     )
     api_url: str = os.getenv('MOCK_API_URL', 'http://localhost:8000')
     api_key: str = os.getenv('MOCK_API_KEY', 'training-key')
     raw_dir: Path = root / 'data' / 'raw'
+    incremental_dir: Path = root / 'data' / 'incremental'
+    dirty_dir: Path = root / 'data' / 'dirty'
     staging_dir: Path = root / 'data' / 'staging'
     reject_dir: Path = root / 'data' / 'reject'
     metadata_dir: Path = root / 'metadata'

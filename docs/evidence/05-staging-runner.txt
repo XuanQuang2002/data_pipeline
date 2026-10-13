@@ -1,0 +1,17 @@
+2026-10-12 16:42:09,638 | INFO | file_pipeline | === Starting Batch File Pipeline: /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01 ===
+2026-10-12 16:42:09,638 | INFO | file_pipeline | Extracting customers from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/customers_daily.csv
+2026-10-12 16:42:09,643 | INFO | file_pipeline | customers Profile: rows=100, cols=10, dups=0
+2026-10-12 16:42:09,650 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/customers_clean.csv (100 rows)
+2026-10-12 16:42:09,650 | INFO | file_pipeline | Extracting products from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/products_daily.csv
+2026-10-12 16:42:09,652 | INFO | file_pipeline | products Profile: rows=50, cols=9, dups=0
+2026-10-12 16:42:09,654 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/products_clean.csv (50 rows)
+2026-10-12 16:42:09,654 | INFO | file_pipeline | Extracting orders from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/orders_daily.csv
+2026-10-12 16:42:09,656 | INFO | file_pipeline | orders Profile: rows=600, cols=10, dups=0
+2026-10-12 16:42:09,667 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/orders_clean.csv (600 rows)
+2026-10-12 16:42:09,667 | INFO | file_pipeline | Extracting order_items from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/order_items_daily.csv
+2026-10-12 16:42:09,671 | INFO | file_pipeline | order_items Profile: rows=1533, cols=9, dups=0
+2026-10-12 16:42:09,684 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/order_items_clean.csv (1533 rows)
+2026-10-12 16:42:09,684 | INFO | file_pipeline | Extracting payments from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/payments_daily.json
+2026-10-12 16:42:09,686 | INFO | file_pipeline | payments Profile: rows=536, cols=9, dups=0
+2026-10-12 16:42:09,696 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/payments_clean.csv (536 rows)
+2026-10-12 16:42:09,696 | INFO | file_pipeline | === Batch File Pipeline completed successfully ===

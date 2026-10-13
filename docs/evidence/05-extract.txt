@@ -1,0 +1,29 @@
+2026-10-12 15:56:21,160 | INFO | file_pipeline | === Starting Batch File Pipeline: /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01 ===
+2026-10-12 15:56:21,160 | INFO | file_pipeline | Extracting customers from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/customers_daily.csv
+2026-10-12 15:56:21,167 | INFO | file_pipeline | customers Profile: rows=100, cols=10, dups=0
+2026-10-12 15:56:21,176 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/customers_clean.csv (100 rows)
+2026-10-12 15:56:21,176 | INFO | file_pipeline | Extracting products from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/products_daily.csv
+2026-10-12 15:56:21,178 | INFO | file_pipeline | products Profile: rows=50, cols=9, dups=0
+2026-10-12 15:56:21,182 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/products_clean.csv (50 rows)
+2026-10-12 15:56:21,182 | INFO | file_pipeline | Extracting orders from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/orders_daily.csv
+2026-10-12 15:56:21,184 | INFO | file_pipeline | orders Profile: rows=600, cols=10, dups=0
+2026-10-12 15:56:21,195 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/orders_clean.csv (600 rows)
+2026-10-12 15:56:21,195 | INFO | file_pipeline | Extracting order_items from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/order_items_daily.csv
+2026-10-12 15:56:21,199 | INFO | file_pipeline | order_items Profile: rows=1533, cols=9, dups=0
+2026-10-12 15:56:21,218 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/order_items_clean.csv (1533 rows)
+2026-10-12 15:56:21,218 | INFO | file_pipeline | Extracting payments from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/payments_daily.json
+2026-10-12 15:56:21,221 | INFO | file_pipeline | payments Profile: rows=536, cols=9, dups=0
+2026-10-12 15:56:21,231 | INFO | file_pipeline | Saved cleaned staging file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/staging/payments_clean.csv (536 rows)
+2026-10-12 15:56:21,231 | INFO | file_pipeline | Extracting missing_file from /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/missing_file.csv
+2026-10-12 15:56:21,231 | ERROR | file_pipeline | Missing input file for missing_file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/missing_file.csv
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Volumes/Data/Developer/PythonProject/data_pipeline/scripts/run_file_pipeline.py", line 63, in <module>
+    run_batch(Path(args.input_dir))
+  File "/Volumes/Data/Developer/PythonProject/data_pipeline/scripts/run_file_pipeline.py", line 29, in run_batch
+    raw_df = read_dataset(file_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Data/Developer/PythonProject/data_pipeline/src/extract_files.py", line 19, in read_dataset
+    raise FileNotFoundError(f"Missing file: {path}")
+FileNotFoundError: Missing file: /Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01/missing_file.csv

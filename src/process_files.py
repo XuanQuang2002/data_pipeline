@@ -49,7 +49,7 @@ def main():
     logger.info("pipeline started")
 
     for file_name in FILES:
-        path = Settings().staging_dir / file_name
+        path = Settings().incremental_dir / 'day_2026-07-01' / file_name
         try:
             process_one(path)
         except FileNotFoundError:
