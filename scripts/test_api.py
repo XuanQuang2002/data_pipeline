@@ -2,6 +2,16 @@ from src.api_client import fetch_all_pages
 import pandas as pd
 from src.transform import normalize
 from src.load_postgres import upsert_dataframe
+from src.config import SETTINGS
+from src.logger import get_logger
+
+log = get_logger("test_api")
+tables = {
+    "customers" : "customers", 
+    "products" : "products",
+    "orders" : "orders",
+    "order-items" : "order_items",
+    "payments" : "payments"}
 
 # rows = fetch_all_pages(
 #     "customers",
@@ -25,22 +35,18 @@ from src.load_postgres import upsert_dataframe
 #     )
 #     print(resource,len(rows),"expected=",expected)
 
-# fullload: doc toan bo, don gian, ton I/O hon
-rows = fetch_all_pages(
-    "customers",
-)
+for resource in tables:
+    rows = fetch_all_pages(
+        resource,
+    )
+    log.info("resource=%s rows=%d", resource, len(rows))
 
-# Increamental Load: 
-# chi lay record moi/thay doi
-# can check point/watermark
-rows_temp = fetch_all_pages(
-    "customers",
-    updated_after="2023-01-01T00:00:00Z",
-)
-df = normalize(
-    pd.DataFrame(rows)
-)
-result = upsert_dataframe(
-    "customers",df,
-)
-print(result)
+    # SAVE RAW Ở ĐÂY
+    df = normalize(
+        pd.DataFrame(rows)
+    )
+    result = upsert_dataframe(
+        tables[resource],df
+    )
+    df.to_csv(SETTINGS.raw_dir / "api" / ""f"{resource}_raw.csv", index=False)
+    log.info("resource=%s upserted=%s", resource, result)

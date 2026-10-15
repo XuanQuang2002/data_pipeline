@@ -2,15 +2,8 @@ from pandas import DataFrame
 from sqlalchemy import text
 from .database import engine
 import pandas as pd
+from src.config import PK
 
-
-PK = {
-    'customers':'customer_id', 
-    'products':'product_id', 
-    'orders':'order_id',
-    'order_items':'order_item_id', 
-    'payments':'payment_id'
-}
 
 def _python_value(value):
     """Xử lý triệt để NaN, NaT và numpy types thành None cho PostgreSQL driver."""

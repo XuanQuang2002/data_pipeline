@@ -5,6 +5,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+PK = {
+    "customers": "customer_id",
+    "products": "product_id",
+    "orders": "order_id",
+    "order_items": "order_item_id",
+    "payments": "payment_id",
+}
+
+API_RESOURCES = {
+    'customers' : 'customers',
+    'products': 'products',
+    'orders': 'orders',
+    'order_items': 'order-items',  # Mapping tên resource chuẩn có dấu gạch ngang
+    'payments': 'payments',
+}
 
 @dataclass(frozen=True)
 class Settings:
@@ -22,6 +37,7 @@ class Settings:
     reject_dir: Path = root / 'data' / 'reject'
     metadata_dir: Path = root / 'metadata'
     report_dir: Path = root / 'reports'
+
 
 
 SETTINGS = Settings()

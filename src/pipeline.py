@@ -8,19 +8,11 @@ import json
 import uuid
 import pandas as pd
 from pathlib import Path
-from config import SETTINGS
+from config import SETTINGS,API_RESOURCES
 from api_client import fetch_all_pages
 from logger import get_logger
 
 log = get_logger('pipeline')
-
-API_RESOURCES = {
-    'customers' : 'customers',
-    'products': 'products',
-    'orders': 'orders',
-    'order_items': 'order-items',  # Mapping tên resource chuẩn có dấu gạch ngang
-    'payments': 'payments',
-}
 
 def run(input_dir=Path('data/incremental/day_2026-07-01'), source='file', refresh=False):
     # TODO 1: tạo run_id và đọc checkpoint.

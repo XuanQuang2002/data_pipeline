@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timezone
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from .config import SETTINGS
+from .config import SETTINGS, PK
 
 def build_session():
     retry = Retry(
@@ -64,3 +64,51 @@ def save_raw_rows(
             encoding="utf-8",
         )
         return path
+
+def clean_blank_values(df):
+    out = df.copy()
+
+    for col in out.columns:
+        if out[col].dtype == "object":
+            out[col] = out[col].replace(
+                r"^\s*$",
+                None,
+                regex=True
+            )
+
+    return out
+
+def split_duplicate_pk(
+    name,
+    df,
+):
+
+    pk = PK[name]
+
+    dup_mask = df.duplicated(
+        subset=[pk],
+        keep="first"
+    )
+
+    valid = df[
+        ~dup_mask
+    ].copy()
+
+    reject = df[
+        dup_mask
+    ].copy()
+
+    if not reject.empty:
+
+        reject[
+            "error_code"
+        ] = "DUPLICATE_ID"
+
+        reject[
+            "error_message"
+        ] = (
+            f"{pk} duplicated "
+            "inside current batch"
+        )
+
+    return valid, reject
