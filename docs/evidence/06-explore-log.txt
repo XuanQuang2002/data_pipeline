@@ -1,7 +1,5 @@
-```
-    curl http://localhost:8000/health
-    {"status":"ok"}%
-```
+curl http://localhost:8000/health
+{"status":"ok"}%
 
 curl -H "X-API-Key: training-key" \
 "http://localhost:8000/customers?page=1&page_size=5"
