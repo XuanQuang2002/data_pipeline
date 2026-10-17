@@ -44,28 +44,6 @@ def process_one(path: Path):
         output_path,
     )
 
-
-def main():
-    logger.info("pipeline started")
-
-    for file_name in FILES:
-        path = Settings().incremental_dir / 'day_2026-07-01' / file_name
-        try:
-            process_one(path)
-        except FileNotFoundError:
-            logger.exception("file not found dataset=%s", file_name)
-            raise
-        except Exception:
-            logger.exception("failed dataset=%s", file_name)
-            raise
-
-    for path in sorted(staging.glob("*_clean.csv")):
-        df = pd.read_csv(path)
-        print(path.name, len(df))
-        check_parse_failure(df, path)
-
-    logger.info("pipeline success")
-
 def check_parse_failure(clean_df: pd.DataFrame, path: Path):
     for col in clean_df.columns:
         if col.endswith("_date") or col.endswith("_at"):
@@ -85,6 +63,3 @@ def check_parse_failure(clean_df: pd.DataFrame, path: Path):
                 col,
                 n_invalid,
             )
-
-if __name__ == "__main__":
-    main()
