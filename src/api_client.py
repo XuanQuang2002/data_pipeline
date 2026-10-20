@@ -1,9 +1,24 @@
 import time
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from .config import SETTINGS
 from .logger import get_logger
 
 log = get_logger("api")
+
+def build_session():
+    retry=Retry(
+        total=3,
+        status_forcelist=[500,502,503,504],
+        allowed_methods=['GET'],
+        backoff_factor=1,
+        raise_on_status=False)
+    s=requests.Session()
+    a=HTTPAdapter(max_retries=retry)
+    s.mount('http://',a)
+    s.mount('https://',a)
+    return s
 
 def fetch_all_pages(
         resource: str, 

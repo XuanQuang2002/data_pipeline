@@ -1,0 +1,10 @@
+{
+  "run_id": "6440ccb3-6bd3-49f0-9287-d58f51b7e04c",
+  "started_at": "2026-10-20T09:34:27.337484+00:00",
+  "finished_at": "2026-10-20T09:34:27.395072+00:00",
+  "status": "FAILED",
+  "last_successful_run_id": null,
+  "last_updated_checkpoint": null,
+  "stats": [],
+  "error_message": "'products'"
+}

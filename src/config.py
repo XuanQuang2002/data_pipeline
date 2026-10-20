@@ -37,6 +37,8 @@ class Settings:
     reject_dir: Path = root / 'data' / 'reject'
     metadata_dir: Path = root / 'metadata'
     report_dir: Path = root / 'reports'
+    metadata_dir: Path = root/ 'metadata'
+    reject_rate: float = float(os.getenv('REJECT_RATE_THRESHOLD','0.10'))
 
 
 

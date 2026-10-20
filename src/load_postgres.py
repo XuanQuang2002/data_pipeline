@@ -1,4 +1,3 @@
-from pandas import DataFrame
 from sqlalchemy import text
 from .database import engine
 import pandas as pd
