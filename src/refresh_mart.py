@@ -1,18 +1,26 @@
-from pathlib import Path
-from sqlalchemy import text
-from src.database import engine
-from src.config import SETTINGS
+from .config import SETTINGS
+from .database import engine
 from src.logger import get_logger
 logger=get_logger('refresh_mart')
-def run_sql_file(path):
-    sql=Path(path).read_text(encoding='utf-8'); statements=[s.strip() for s in sql.split(';') if s.strip()]
-    with engine.begin() as conn:
-        for stmt in statements: conn.execute(text(stmt))
-def main():
-    run_sql_file(SETTINGS.root/'sql/solutions/10_create_sales_data_mart.sql'); 
-    run_sql_file(SETTINGS.root/'sql/solutions/12_load_data_mart.sql'); 
-    logger.info('Sales Data Mart refresh completed')
-if __name__=='__main__': main()
+
 def refresh():
-    """TODO Buổi 8: chạy SQL do chính nhóm xây dựng ở Buổi 4 để refresh Data Mart."""
-    raise NotImplementedError('Implement refresh() using your sql/student/04_data_mart.sql or separated load script')
+    """Thực thi script SQL làm mới Sales Data Mart."""
+    sql_path = SETTINGS.root / 'sql' / 'solutions' / '12_load_data_mart.sql'
+    sql = sql_path.read_text(encoding='utf-8')
+    raw = engine.raw_connection()
+    try:
+        cur = raw.cursor()
+        try:
+            cur.execute(sql)
+        finally:
+            cur.close()
+        raw.commit()
+    except Exception:
+        raw.rollback()
+        raise
+    finally:
+        raw.close()
+
+
+if __name__ == '__main__':
+    refresh()

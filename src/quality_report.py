@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 import pandas as pd
 
-def build_report(stats, run_id=None, out_dir='reports'):
+def build_report(stats, run_id=None, out_dir=Path('reports')):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(stats)

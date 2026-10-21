@@ -1,7 +1,7 @@
 {
-  "run_id": "6440ccb3-6bd3-49f0-9287-d58f51b7e04c",
-  "started_at": "2026-10-20T09:34:27.337484+00:00",
-  "finished_at": "2026-10-20T09:34:27.395072+00:00",
+  "run_id": "2d8f86d5-d573-4d4d-b934-72893f8ec361",
+  "started_at": "2026-10-20T12:39:03.397308+00:00",
+  "finished_at": "2026-10-20T12:39:03.443808+00:00",
   "status": "FAILED",
   "last_successful_run_id": null,
   "last_updated_checkpoint": null,
