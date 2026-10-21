@@ -2,9 +2,16 @@
   "run_id": "2d8f86d5-d573-4d4d-b934-72893f8ec361",
   "started_at": "2026-10-20T12:39:03.397308+00:00",
   "finished_at": "2026-10-20T12:39:03.443808+00:00",
-  "status": "FAILED",
-  "last_successful_run_id": null,
+  "status": "success",
+  "last_successful_run_id": "b3b5c288-6b02-47fb-aba9-a81739b57783",
   "last_updated_checkpoint": null,
   "stats": [],
-  "error_message": "'products'"
+  "error_message": "'products'",
+  "last_run_id": "b3b5c288-6b02-47fb-aba9-a81739b57783",
+  "last_successful_at": "2026-10-21T15:17:42.582733+00:00",
+  "last_source": "file",
+  "api_watermarks": {},
+  "processed_file_batches": [
+    "/Volumes/Data/Developer/PythonProject/data_pipeline/data/incremental/day_2026-07-01"
+  ]
 }

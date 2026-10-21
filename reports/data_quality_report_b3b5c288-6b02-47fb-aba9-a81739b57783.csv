@@ -1,0 +1,6 @@
+run_id,dataset,input,valid,rejected,inserted,updated,inserted_or_updated
+b3b5c288-6b02-47fb-aba9-a81739b57783,customers,100,100,0,0,100,100
+b3b5c288-6b02-47fb-aba9-a81739b57783,products,50,50,0,0,50,50
+b3b5c288-6b02-47fb-aba9-a81739b57783,orders,600,600,0,0,600,600
+b3b5c288-6b02-47fb-aba9-a81739b57783,order_items,1533,1533,0,0,1533,1533
+b3b5c288-6b02-47fb-aba9-a81739b57783,payments,536,536,0,0,536,536
